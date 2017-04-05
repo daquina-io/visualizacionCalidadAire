@@ -10,8 +10,8 @@ library(leaflet)
 library(dplyr)
 
 ######## aire #######
-x <- read.csv('../data/points.csv', sep=',',header=TRUE)
-coorPm <- cbind(x[[1]],x[[2]],x[[10]])
+x <- read.csv('../data/points.csv', sep=',',header=TRUE, stringsAsFactors=FALSE)
+coorPm <-cbind(as.numeric(x[[1]]),as.numeric(x[[2]]),as.numeric(x[[10]]))
 addressPoints <- data.frame( coorPm  )
 colnames( addressPoints ) <- c( "lat", "lng", "value" )
 ## detecta coordenadas repetidas y calcula el valor promedio para cada coordenada única
@@ -26,7 +26,7 @@ minimo <- min(addressPoints$value)
 ## gradient <- as.list(color(0:20 / 20))
 ## names(gradient) <- as.character(0:20 / 20)
 
-leaflet( meansAddressPoints ) %>%
+leaflet( meansAddressPoints[-dim(meansAddressPoints)[1], ] ) %>%
   addTiles() %>%
   setView(  -74.58, 6.2454, 10 ) %>%
   addHeatmap(
