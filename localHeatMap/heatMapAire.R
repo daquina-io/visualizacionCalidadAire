@@ -10,7 +10,7 @@ library(leaflet)
 library(dplyr)
 
 ######## aire #######
-x <- read.csv('points.csv', sep=',',header=TRUE)
+x <- read.csv('../data/points.csv', sep=',',header=TRUE)
 coorPm <- cbind(x[[1]],x[[2]],x[[10]])
 addressPoints <- data.frame( coorPm  )
 colnames( addressPoints ) <- c( "lat", "lng", "value" )
