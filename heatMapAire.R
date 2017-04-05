@@ -12,7 +12,7 @@ library(jsonlite)
 library(dplyr)
 
 ######## aire #######
-x <- read.csv('/home/ff/Data/aire/points.csv', sep=',',header=TRUE)
+x <- read.csv('points.csv', sep=',',header=TRUE)
 x[[1]]
 options(digits=4)
 coorPm <- cbind(x[[1]],x[[2]],x[[10]])
