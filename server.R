@@ -31,7 +31,7 @@ shinyServer(function(input, output, session) {
       addHeatmap(
         lat = ~lat,
         lng = ~lng,
-        intensity = ~value/maximo,
+        intensity = ~value/55,
         radius = 18,
         blur = 15,
         maxZoom = 20
